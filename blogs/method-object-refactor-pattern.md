@@ -30,23 +30,16 @@ public class MyListener extends FrameworkListener {
 
 ```
 
-While this code takes one maybe a minute to understand, more commonly the pre-existing code one encounters in the wild
-takes multiple hours to grok.
+While this code takes maybe a minute to understand, more commonly the pre-existing code encountered in the wild
+can take much longer grok.
 
-Why is that? Unfortunately, but understandably, one does not always go to lengths to achieve such readability in the code they write. 
+Why is that? Sometimes a developer does not always go to lengths to achieve such readability in the code they write.
 Perhaps this code above does not even seem realistic or achievable:
 * The private methods don't take any parameters, so how do they operate on any data?
 * The exchange isn't being utilized, because the methods don't accept any parameters.
 * The exchange isn't stored as a class-level field, either, so the private methods could not access it that way.
 
 Fair enough. But it's not as out-of-reach as one might think.
-
-> Understanding code's intent is one of the biggest hurdles holding back the developers trying to maintain codebases.
-> If one doesn't see the intent, then they don't clearly see the software features or capabilities,
-> and then they become afraid to change the code because they don't know what might break.
-> If one is afraid to change the code, they can't improve it.
-
-> Fear is the mind killer.
 
 Proposal: the "Method Object" refactor pattern is **a** tool for shaping code into something more understandable.
 
@@ -56,7 +49,7 @@ Proposal: the "Method Object" refactor pattern is **a** tool for shaping code in
 
 ## First: Method Object refactor pattern demonstration
 
-Imagine the code one wants to clean up looks almost like this:
+Imagine the code one wants to refactor looks something like this:
 
 ```java
 @Component
@@ -74,9 +67,10 @@ public class MyListener extends FrameworkListener {
 
 > Remember to substitute real code for comment-placeholder while imagining
 
-Initial thoughts: that's a lot of code!
-And what's a `FrameworkExchange`? 
-Who knows, yet - but it seems to have event data and other types of Framework-related data in it.
+Initial thoughts: 
+* that's a lot of code!
+* And what's a `FrameworkExchange`? 
+* Who knows, yet - but it seems to have event data and other types of Framework-related data in it.
 And it's used all over this method!
 
 But the main point of this example,
@@ -84,11 +78,11 @@ is that one has encountered the legendary spaghetti-code monster in one of its m
 
 So, one begins the method object refactor by creating a private class and moving the logic there.
 
-> The phrases "method object" and "private class" are used somewhat interchangeably throughout this document.
-> This is because they're very similar in this pattern demonstration. 
-> But they are not the same: a private class can be used without using the M.O. pattern. 
+> The phrases "method object" and "private class" can sometimes be used interchangeably.
+> This is because they're very similar in this pattern. 
+> But they are not the same: a private class can be used without using the method object pattern. 
 
-The code "chunks" need to utilize the `exchange` and the `repository` instances.
+The code "chunks" utilize the `exchange` and the `repository` instances.
 So, one passes them into the new private class's constructor. And stores them as fields.
 Why fields? See the upsides and downsides sections.
 
@@ -120,7 +114,7 @@ public class MyListener extends FrameworkListener {
 }
 ```
 
-Next is a laborious, but unavoidable, step (which one could have conducted earlier).
+Next is a laborious, but unavoidable, step (which might have been conducted earlier).
 Imagine, too, that the original developer who wrote this code is no longer on the team. 
 No one really knows what it does. There are no tests (but it works in production!).
 
@@ -192,23 +186,24 @@ private class Process {
 
 ### Post-demonstration thoughts
 
-One may be wondering what the point here is.
-One moved the code to a private class? A "method object"?
-* Yes. There is boiler-plate involved in this pattern that can be annoying or confusing.
+So, what is the point here?
 
-One spent hours reading & mentally-digesting the logic and re-organizing it?
-* Yes. When working with legacy code, this is unavoidable.
+The code was moved to a private class? A "method object"?
+* this pattern involves some boiler-plate, and it may be annoying or confusing.
+
+Mentally-digesting the logic and re-organizing it was required?
+* When working with legacy code, this is usually unavoidable.
 
 Couldn't that logic have been improved without creating the method object?
-* Yes. Refer to the upside 
+* Yes. Refer to the upsides section below.
 
 ## Second: upsides
 
 ### Upside 1: Flexibility to use class-level fields
 
 Why use class-level fields? 
-Because, then one doesn't have to write functions that pass the objects around.
-Method names can then focus on human-language words and phrasing.
+With class-level fields, methods/functions don't have to pass objects around.
+Method names can then focus on human-language-readable words and phrasing.
 
 So, in a method object, one can more easily and safely use class-level fields.
 Normally, in framework-level classes where the instantiated object is managed by a framework (e.g. a dependency injection graph),
@@ -218,12 +213,12 @@ But our method object instance *will* be garbage collected when the original met
 
 This means our fields won't be "held onto" and potentially affect subsequent calls to the framework-level method.
 
-Method Objects give one this flexibility.
+Method Objects provide this flexibility.
 
 ### Upside 2: Reduce repetitive code
 
 The original spaghetti code operated on the `exchange` instance multiple times, sometimes in repetitive ways.
-Using constructor-fields private class allows one to perform those operations once in the constructor,
+Using constructor-fields private class allows developers to perform those operations once in the constructor,
 and then store the result for use throughout the method object.
 
 ### Upside 3: method signatures can be succinct
@@ -234,9 +229,9 @@ In some codebases, it might consume much of one's time to realize that a dog bei
 
 The method signature doesn't have parameters to create any noise -- instead, the dependencies are accessed from the class-level fields.
 
-One may ask: could `dogIsInTheLake` be public and invoked from the original public class?
+Could `dogIsInTheLake` be public and invoked from the original public class?
 Yes, but then some noise is generated because of the instance-method invocation format: `process.dogIsInTheLake()`.
-Within a method object, private methods don't need to be invoked with `process.`.
+Within a method object, private methods don't need to be invoked with `process.` prefixed.
 
 ## Last: downsides
 
@@ -253,8 +248,8 @@ into more digestable chunks.
 
 The method object refactor pattern's use case seems clear when refactoring a legacy, spaghetti-like codebase file.
 
-But, consider: would one use this pattern in a write-from-scratch, greenfield application?
-Or would one adopt better object-oriented programming principles from the start?
+But, consider: would this pattern be useful in a write-from-scratch, greenfield application?
+Or would applying better object-oriented programming principles from the start be better?
 
 The method object pattern may become less useful as a codebase matures in a "healthy" fashion. A mature, "healthy" codebase
 may already have re-usable classes and functions that are tuned toward readability and performance. Setting up a method object
