@@ -16,7 +16,7 @@ public class MyListener extends FrameworkListener {
 
 
     @Override
-    public static void process(FrameworkExchange exchange) {
+    public void process(FrameworkExchange exchange) {
         // wouldn't this be nice? it's very easy to understand the high-level algorithm.
         if (dogIsOffline()) {
             triggerDogOfflineError();
@@ -66,7 +66,7 @@ public class MyListener extends FrameworkListener {
     private MyRepository repository;
 
     @Override
-    public static void process(FrameworkExchange exchange) {
+    public void process(FrameworkExchange exchange) {
         // 100s of lines of weird logic
     }
 }
@@ -100,8 +100,8 @@ public class MyListener extends FrameworkListener {
     private MyRepository repository;
 
     @Override
-    public static void process(FrameworkExchange exchange) {
-        new Process().invoke(exchange, repository);
+    public void process(FrameworkExchange exchange) {
+        new Process(exchange, repository).invoke();
     }
 
     private class Process {
