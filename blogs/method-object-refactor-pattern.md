@@ -31,13 +31,12 @@ public class MyListener extends FrameworkListener {
 ```
 
 While this code takes maybe a minute to understand, more commonly the pre-existing code encountered in the wild
-can take much longer grok.
+can take much longer to grok.
 
-Why is that? Sometimes a developer does not always go to lengths to achieve such readability in the code they write.
-Perhaps this code above does not even seem realistic or achievable:
-* The private methods don't take any parameters, so how do they operate on any data?
-* The exchange isn't being utilized, because the methods don't accept any parameters.
-* The exchange isn't stored as a class-level field, either, so the private methods could not access it that way.
+Why is that? Sometimes a developer does not always have the time to achieve such readability.
+Perhaps the code above does not even seem realistically achievable:
+* The private methods don't take any parameters, so how would they operate on the `exchange`?
+* The `exchange` isn't stored as a class-level field, either, so the private methods could not access it that way.
 
 Fair enough. But it's not as out-of-reach as one might think.
 
@@ -69,7 +68,7 @@ public class MyListener extends FrameworkListener {
 
 Initial thoughts: 
 * that's a lot of code!
-* And what's a `FrameworkExchange`? 
+* what's a `FrameworkExchange`? 
 * Who knows, yet - but it seems to have event data and other types of Framework-related data in it.
 And it's used all over this method!
 
@@ -115,10 +114,10 @@ public class MyListener extends FrameworkListener {
 ```
 
 Next is a laborious, but unavoidable, step (which might have been conducted earlier).
-Imagine, too, that the original developer who wrote this code is no longer on the team. 
-No one really knows what it does. There are no tests (but it works in production!).
+The original developer who wrote this code is no longer on the team, so one must understand it all by themself. 
+No one really knows what it does - there are no tests, but it seems to work fine in production.
 
-One reads and notices some code that seems mostly independent of one another, and labels those "Chunks 1 and 2".
+While reading and learning the code, one notices code that seems mostly independent, and labels those "Chunks 1 and 2".
 One keeps reading and notices some duplicate logic and labels that "Chunk A".
 Assume that each "chunk" consists of calls to the `exchange` and `repository` instances,
 as well as various local variables, control-flow statements, and loops.
@@ -186,16 +185,15 @@ private class Process {
 
 ### Post-demonstration thoughts
 
-So, what is the point here?
+This seems like an unusual pattern. So, what is the point here?
 
-The code was moved to a private class? A "method object"?
-* this pattern involves some boiler-plate, and it may be annoying or confusing.
+The code was moved to a private class `Process` within the original public class?
+This pattern involves some boiler-plate in writing the private class, and that may be annoying or confusing.
 
-Mentally-digesting the logic and re-organizing it was required?
-* When working with legacy code, this is usually unavoidable.
+Mentally-digesting the logic and re-organizing it was required and took a long time?
+When working with legacy code, this is usually unavoidable.
 
 Couldn't that logic have been improved without creating the method object?
-* Yes. Refer to the upsides section below.
 
 ## Second: upsides
 
@@ -221,7 +219,7 @@ The original spaghetti code operated on the `exchange` instance multiple times, 
 Using constructor-fields private class allows developers to perform those operations once in the constructor,
 and then store the result for use throughout the method object.
 
-### Upside 3: method signatures can be succinct
+### Upside 3: Method signatures can be succinct
 
 The signature of the method `dogIsInTheLake` is very succinct. 
 A control-statement is very readable: `if(dogIsInTheLake) { triggerDogInTheLakeError(); }`.
@@ -235,7 +233,7 @@ Within a method object, private methods don't need to be invoked with `process.`
 
 ## Last: downsides
 
-### Downside 1: there's likely still spaghetti
+### Downside 1: There's likely still spaghetti
 
 From one perspective, this pattern has re-organized and re-grouped the single, massive blob of spaghetti-code into 
 smaller blobs of spaghetti-code. 
@@ -244,7 +242,7 @@ Perhaps the original spaghetti-code could've been refactored into multiple publi
 and reused throughout the project. This pattern does not fix spaghetti-code, but it does help one begin to split it down
 into more digestable chunks.
 
-### Downside 2: knowing when to use this
+### Downside 2: Knowing when to use this
 
 The method object refactor pattern's use case seems clear when refactoring a legacy, spaghetti-like codebase file.
 
@@ -254,3 +252,4 @@ Or would applying better object-oriented programming principles from the start b
 The method object pattern may become less useful as a codebase matures in a "healthy" fashion. A mature, "healthy" codebase
 may already have re-usable classes and functions that are tuned toward readability and performance. Setting up a method object
 in such a situation probably doesn't offer as many benefits.
+
