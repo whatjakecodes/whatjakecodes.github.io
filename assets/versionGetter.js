@@ -14,7 +14,9 @@ dateNode.textContent = formattedDate;
 const button = document
     .getElementById("versionBox")
     .querySelector("button")
-
 button.addEventListener("click", function () {
-    button.parentNode.removeChild(button);
+    const box = document.querySelector("#versionBox")
+    if (box) {
+        box.parentNode.removeChild(box)
+    }
 });
