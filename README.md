@@ -2,7 +2,14 @@
 
 ## Run site locally
 
-Install node.js somehow
+Install node.js via chocolatey
+```zsh
+# in windows git bash:
+choco install nodejs.install --force -y
+
+## ensure folder created
+mkdir $USERPROFILE\AppData\Roaming\npm
+```
 
 Open command line and run:
 
@@ -11,7 +18,4 @@ cd whatjakecodes.github.io
 npx http-server .
 ```
 
-# 
-
->todo: figure this out
->https://www.npmjs.com/package/http-server
+#
