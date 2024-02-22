@@ -7,10 +7,5 @@ body {
     bottom: 20px;
     right: 20px;
     background-color: wheat;
-}
-
-#versionBox button {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    text-align: right;
 }
