@@ -1,4 +1,4 @@
-# About
+# About.md
 
 Hi! My name is Jake. This is my personal website.
 
