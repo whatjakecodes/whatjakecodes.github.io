@@ -11,8 +11,10 @@ const day = ("0" + date.getDate()).slice(-2); // Add leading zero for single-dig
 const formattedDate = `${year}-${month}-${day}`;
 dateNode.textContent = formattedDate;
 
-const button = document.querySelector("#versionBox button")
+const button = document
+    .getElementById("versionBox")
+    .querySelector("button")
+
 button.addEventListener("click", function () {
-    const box = document.querySelector("#versionBox")
-    document.removeChild(box)
+    button.parentNode.removeChild(button);
 });
