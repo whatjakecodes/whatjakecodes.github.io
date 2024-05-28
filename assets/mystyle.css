@@ -9,3 +9,11 @@ body {
     background-color: wheat;
     text-align: right;
 }
+
+#campfireContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: wheat;
+    text-align: right;
+}
