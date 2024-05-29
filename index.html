@@ -6,38 +6,86 @@
     <script type="module" crossorigin src="assets/versionGetter.js"></script>
 </head>
 <body>
-<ul>
-    <li>
-        <a href="/about">About</a>
-    </li>
-    <li>
-        <a href="/stuff/falling-leaf">Falling Leaf Game</a>
-    </li>
-    <li>
-        <a href="/stuff/demo-tsx-app">Demo TSX App</a>
-    </li>
-</ul>
+<div class="bg-container"></div>
+<div class="content">
+    <header>
+        <h1>jakestout.dev</h1>
+        <nav>
+            <a href="https://x.com/jakestout" title="@jakestout [twitter/x]">twitter</a>
+            <span>/</span>
+            <a href="https://peoplemaking.games/@jacobi" title="@jacobi [mastodon]">mastodon</a>
+            <span>/</span>
+            <a href="https://www.linkedin.com/in/jake-stout-a08aa848/" title="[linkedin]">linkedin</a>
+            <span>/</span>
+            <a href="https://github.com/whatjakecodes" title="whatjakecodes [github]">github</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <p>Hi!</p>
 
-<div id="campfireContainer">
-    <canvas id="unity-canvas" width=256 height=256 tabindex="-1"
-            style="width: 256px; height: 256px; background: #231F20"></canvas>
-    <script src="assets/campfire/Build/campfire4.loader.js"></script>
-    <script src="assets/campfire/MyCampfireLoader.js"></script>
+            <p>I'm a software engineer who specializes in fullstack web development and game programming.</p>
+
+            <p>I've worked in the software engineering industry for 10+ years. My first role was 6 years in IT at Humana. My second role was at VMware Tanzu Labs, consulting for 3 years with various companies.</p>
+
+            <p>As of May 29th, 2024, I am working on a passion project video game in Unity.</p>
+
+            <p>I have experience with pair-programming, test-driven development, and fullstack web development.</p>
+
+            <h2>Primary Skills</h2>
+            <ul>
+                <li>Java / Spring</li>
+                <li>C# / .NET</li>
+                <li>TypeScript / React</li>
+                <li>TDD</li>
+                <li>Pair Programming</li>
+            </ul>
+
+            <h3>Other Skills</h3>
+            <ul>
+                <li>Legacy codebase modification</li>
+                <li>iOS / Objective-C</li>
+                <li>Java / Android</li>
+            </ul>
+
+            <p>I am available for projects and tutoring. For inquiries, email <a href="mailto:jakestout-inquiry@proton.me">jakestout-inquiry@proton.me</a></p>
+        </section>
+        <section class="centered-section">
+            <img src="assets/symbol3.png" alt="section break" draggable="false" (dragstart)="false;"
+                 class="unselectable">
+        </section>
+        <section>
+            <h2>Stuff</h2>
+            <ul>
+                <li>
+                    <a href="/stuff/falling-leaf">Falling Leaf Game</a>
+                </li>
+                <li>
+                    <a href="/stuff/demo-tsx-app">Demo TSX App</a>
+                </li>
+            </ul>
+        </section>
+        <section class="centered-section">
+            <canvas id="unity-canvas" width=256 height=256 tabindex="-1"
+                    style="width: 256px; height: 256px; background: #231F20"></canvas>
+            <script src="assets/campfire/Build/campfire4.loader.js"></script>
+            <script src="assets/campfire/MyCampfireLoader.js"></script>
+        </section>
+    </main>
 </div>
-
 <div id="versionBox">
-    <p>
+    <p style="display: none;">
         <span>v</span>
         <span id="versionNumber">1337</span>
     </p>
 
     <p>
-        <span>dated </span>
+        <span>today </span>
         <span id="versionDate">1968-09-27</span>
     </p>
 
     <p>
-        <span>hard dated </span>
+        <span>updated </span>
         <span id="versionHardDate">2024-05-28</span>
     </p>
 
@@ -47,7 +95,7 @@
         <span id="versionAutoDate">3030-03-04</span>
     </p>
 
-    <button>x</button>
+    <button>dismiss</button>
 </div>
 </body>
 </html>
