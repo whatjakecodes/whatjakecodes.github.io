@@ -15,9 +15,9 @@
 // }
 
 createUnityInstance(document.querySelector("#unity-canvas"), {
-    dataUrl: "../../assets/campfire/Build/campfire4.data.unityweb",
-    frameworkUrl: "../../assets/campfire/Build/campfire4.framework.js.unityweb",
-    codeUrl: "../../assets/campfire/Build/campfire4.wasm.unityweb",
+    dataUrl: "../../assets/campfire/Build/campfire5.data.unityweb",
+    frameworkUrl: "../../assets/campfire/Build/campfire5.framework.js.unityweb",
+    codeUrl: "../../assets/campfire/Build/campfire5.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "DefaultCompany",
     productName: "campfire",
