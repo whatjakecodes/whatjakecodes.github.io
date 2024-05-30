@@ -48,12 +48,12 @@ section {
 }
 
 #versionBox {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: relative;
     padding: 12px;
     background-color: #FCA311;
     text-align: right;
+    margin: 32px auto;
+    max-width: 256px;
 
     button {
         width: 100%;
