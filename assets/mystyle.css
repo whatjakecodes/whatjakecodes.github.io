@@ -69,3 +69,7 @@ section {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+#unity-canvas {
+    background: transparent !important;
+}
