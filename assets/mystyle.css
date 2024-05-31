@@ -34,9 +34,7 @@ header {
     max-width: 960px;
     position: absolute;
     margin-top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    padding: 0 16px;
 }
 
 section {
@@ -72,4 +70,13 @@ section {
 
 #unity-canvas {
     background: transparent !important;
+}
+
+@media (min-width: 1580px) {
+    /*moves campfire to always be visible in bottom right when there is enough space*/
+    #unity-canvas {
+        position: fixed;
+        right: .1%;
+        bottom: .1%;
+    }
 }
