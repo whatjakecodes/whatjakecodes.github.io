@@ -15,9 +15,9 @@
 // }
 
 createUnityInstance(document.querySelector("#unity-canvas"), {
-    dataUrl: "../../assets/campfire/Build/campfire1.data.unityweb",
-    frameworkUrl: "../../assets/campfire/Build/campfire1.framework.js.unityweb",
-    codeUrl: "../../assets/campfire/Build/campfire1.wasm.unityweb",
+    dataUrl: "../../assets/campfire/Build/campfire3.data.unityweb",
+    frameworkUrl: "../../assets/campfire/Build/campfire3.framework.js.unityweb",
+    codeUrl: "../../assets/campfire/Build/campfire3.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "DefaultCompany",
     productName: "campfire",
@@ -25,3 +25,36 @@ createUnityInstance(document.querySelector("#unity-canvas"), {
     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
 });
+
+// *** BEGIN fix scroll isues **
+
+// this forwards scroll events into the WebGL canvas, 
+// even if the mouse is not above the canvas
+const canvas = document.getElementById('unity-canvas');
+document.addEventListener('wheel', function(event) {
+    if (event.target === canvas) {
+        return;
+    }
+
+    const newEvent = new WheelEvent('wheel', event);
+    canvas.dispatchEvent(newEvent);
+});
+
+
+// this converts touch scroll events into wheel events
+let previousTouchY;
+document.addEventListener('touchstart', function(event) {
+    previousTouchY = event.touches[0].clientY;
+}, false);
+
+document.addEventListener('touchmove', function(event) {
+    let currentTouchY = event.touches[0].clientY;
+    let deltaY = previousTouchY - currentTouchY;
+
+    let newEvent = new WheelEvent('wheel', {deltaY: deltaY * 10}); // You can adjust multiplier to suit your scroll speed preference
+    canvas.dispatchEvent(newEvent);
+
+    previousTouchY = currentTouchY; //Store the current Y-coordinate for next comparison
+}, false);
+
+// *** END fix scroll isues **
