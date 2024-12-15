@@ -1,0 +1,1 @@
+import{a as t,t as r}from"../chunks/disclose-version.C2OYe9Uc.js";import"../chunks/legacy.CbvdRRZw.js";import{n as o}from"../chunks/runtime.CoISsHQo.js";var m=r('<h1>Welcome to DND Characters</h1> <label for="char-name">Character Name:</label> <input id="char-name" type="text">',1);function h(a){var e=m();o(4),t(a,e)}export{h as component};

@@ -1,5 +1,7 @@
 # whatjakecodes.github.io
 
+## Build
+
 ## Run site locally
 
 Install node.js via chocolatey
@@ -17,5 +19,3 @@ Open command line and run:
 cd whatjakecodes.github.io
 npx http-server .
 ```
-
-#
