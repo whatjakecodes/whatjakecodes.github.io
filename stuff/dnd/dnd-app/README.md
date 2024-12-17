@@ -3,12 +3,19 @@
 Using Static Site Generation adapter in `svelte.config.js`
 
 ## To Do
-* [] setup basic character sheet
-* [] research LLM API integration
-* [] connect API to character sheet form
-* [] Use SRD classes
+* [ ] setup basic character sheet
+  * [x] Class Name
+  * [ ] Class Proficiencies
+  * [ ] Class Starting Equipment
+  * [ ] ...
+* [x] research LLM API integration
+* [ ] Import SRD classes from JSON data
+  * Dropdown to select the class
   * SRD 5.1
-* [] Create your own class from Claude prompt
+* [ ] Setup Tailwind CSS/Bootstrap
+* [x] Create your own class from Claude prompt
+  * [ ] Save generated class to local browser database
+  * [ ] Export / import class JSON 
 
 ## Developing
 
