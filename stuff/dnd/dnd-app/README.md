@@ -13,6 +13,8 @@ Using Static Site Generation adapter in `svelte.config.js`
   * Dropdown to select the class
   * SRD 5.1
 * [ ] Setup Tailwind CSS/Bootstrap
+* [ ] Create your own class without LLM parsing
+  * Form to save a class / background / species / equipment
 * [x] Create your own class from Claude prompt
   * [ ] Save generated class to local browser database
   * [ ] Export / import class JSON 
