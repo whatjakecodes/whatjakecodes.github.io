@@ -1,5 +1,11 @@
 ﻿<script>
-    import '../app.css';  // or '../lib/styles/app.css' if you put it there
+    import {onMount} from 'svelte';
+    import {dndSRDStore} from '$lib/stores/DnD5eStore';
+    import '../app.css';
+
+    onMount(() => {
+        dndSRDStore.fetchClasses();
+    });
 </script>
 
 <slot/>
