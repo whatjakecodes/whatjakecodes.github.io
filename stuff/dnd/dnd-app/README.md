@@ -32,7 +32,6 @@ npm run dev
 To create a production version of your app:
 
 ```bash
-# from directory /stuff/dnd/dnd-app
 npm run build
 ```
 

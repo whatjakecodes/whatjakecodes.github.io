@@ -5,34 +5,36 @@
 		<link rel="icon" href="./favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link href="./_app/immutable/assets/0.S4aKJY94.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.DRQ3DnYt.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BjMVUvn-.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/runtime.Ca52a4Bo.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.DDm0ybRo.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/render.CDSu9Yn-.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/disclose-version.DnveNlGR.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/if.Bh2D8KSG.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/store.DQ9gojc7.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.CQTAi5xo.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/legacy.Di1klDEM.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.Cevu91m2.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/lifecycle.Bm75_ybb.js">
+		<link href="./_app/immutable/assets/0.AGK7pIu4.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.BNg7mWk9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.DzlKpi0q.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/browser-fallback.-TS2BfOP.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/runtime.DLzUx7Yf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.j243sdN2.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.BUjeGGZQ.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/utils.BF7nJMey.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/disclose-version.BdS823N6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/context.DqzoJhUN.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/props.BFfbiq1N.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.DxbIopxv.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/legacy.BKAuZjgz.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.J4DuXGUT.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.CTgsiMXI.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><!----><!----><div class="min-h-screen p-4 md:p-8 bg-gray-50"><div class="max-w-7xl mx-auto"><div class="flex flex-col lg:flex-row lg:gap-12"><div class="lg:w-1/2 mb-8 lg:mb-0"><h1 class="text-3xl font-bold mb-8 text-gray-800">Create a D&amp;D Character</h1> <div class="space-y-6"><div class="flex flex-col gap-2"><label for="char-name" class="text-sm font-medium text-gray-700">Character Name</label> <input id="char-name" type="text" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></div> <div class="flex flex-col gap-2"><label for="char-class" class="text-sm font-medium text-gray-700">Class</label> <input id="char-class" type="text" value="Warlock" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></div></div></div> <div class="lg:w-1/2"><form class="bg-white rounded-xl shadow-md p-6"><div class="space-y-6"><div class="flex flex-col gap-2"><label for="apiKey" class="text-sm font-medium text-gray-700">API Key</label> <input type="password" id="apiKey" value="" placeholder="Enter your Anthropic API key" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></div> <div class="flex flex-col gap-2"><label for="message" class="text-sm font-medium text-gray-700">Describe your character</label> <textarea id="message" rows="4" placeholder="Enter a character class description" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea></div> <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition-colors">Generate Class</button> <!--[!--><!--]--></div></form></div></div></div></div><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+		<div style="display: contents"><!--[--><!--[--><!----><!----><!----><div class="min-h-screen p-4 md:p-8 bg-gray-50"><div class="max-w-7xl mx-auto"><div class="flex flex-col lg:flex-row lg:gap-12"><div class="lg:w-1/2 mb-8 lg:mb-0"><h1 class="text-3xl font-bold mb-8 text-gray-800">Create a D&amp;D Character</h1> <div class="space-y-6"><div class="flex flex-col gap-2"><label for="char-name" class="text-sm font-medium text-gray-700">Character Name</label> <input id="char-name" type="text" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></div> <!--[!--><!--]--></div></div> <div class="lg:w-1/2"><div class="bg-white rounded-xl shadow-md p-6 mb-6"><!--[--><div>Loading classes...</div><!--]--></div> <p class="p-1 mb-1">Alternatively, generate a class with an LLM:</p> <form class="bg-white rounded-xl shadow-md p-6"><div class="space-y-6"><div class="flex flex-col gap-2"><label for="apiKey" class="text-sm font-medium text-gray-700">API Key</label> <input type="password" id="apiKey" value="" placeholder="Enter your Anthropic API key" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></div> <div class="flex flex-col gap-2"><label for="message" class="text-sm font-medium text-gray-700">Describe your character</label> <textarea id="message" rows="4" placeholder="Enter a character class description" class="rounded-lg border-gray-300 border p-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea></div> <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-medium py-2 px-4 rounded-lg transition-colors">Generate Class</button> <!--[!--><!--]--></div></form><!----></div></div></div></div><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_15dotxa = {
+					__sveltekit_1662it5 = {
 						base: new URL(".", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.DRQ3DnYt.js"),
-						import("./_app/immutable/entry/app.DDm0ybRo.js")
+						import("./_app/immutable/entry/start.BNg7mWk9.js"),
+						import("./_app/immutable/entry/app.BUjeGGZQ.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
