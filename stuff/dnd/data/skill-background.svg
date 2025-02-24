@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+    <!-- Base square - three lines -->
+    <path fill="none" stroke="black" stroke-width="4" d="M0 100 V300" />  <!-- left side -->
+    <path fill="none" stroke="black" stroke-width="4" d="M200 100 V300" />  <!-- right side -->
+    <path fill="none" stroke="black" stroke-width="4" d="M0 300 H200" />  <!-- bottom -->
+    <!-- Top curved hat - with sharp peak -->
+    <path fill="none" stroke="black" stroke-width="2" d="M0,100 C60,80 90,50 100,30 L100,30 C110,50 140,80 200,100" />
+</svg>
